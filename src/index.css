@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "BonVoyage";
+  src: url("/fonts/bonVoyageReg.otf") format("opentype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "BonVoyage";
+  src: url("/fonts/bonVoyageThin.otf") format("opentype");
+  font-weight: 200;
+}
+body {
+  overflow: hidden;
+}
