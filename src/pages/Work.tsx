@@ -1,6 +1,11 @@
 import React from "react"
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 import { Link } from "react-router-dom"
+import {
+  lowerNavBarVariant,
+  navBarLineVariant,
+  textVariant,
+} from "../utils/Variants"
 
 interface WorkProps {}
 const transitionVatiant = {
@@ -16,6 +21,20 @@ const transitionVatiant = {
     },
   },
 }
+const workVariant = (duration: number, delay: number): Variants => ({
+  hidden: {
+    scale: 0,
+    opacity: 0,
+  },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration,
+      delay: 1.4 + delay,
+    },
+  },
+})
 
 export const Work: React.FC<WorkProps> = ({}) => {
   return (
@@ -27,16 +46,31 @@ export const Work: React.FC<WorkProps> = ({}) => {
         className="bg-gray-800 h-full w-screen text-cyan-100 flex"
       >
         <section className="flex-1  h-full flex flex-col justify-between pb-32">
-          <nav className="w-full py-8">
+          <motion.nav
+            variants={lowerNavBarVariant(0.5, 3.4)}
+            initial="hidden"
+            animate="visible"
+            className="w-full py-8"
+          >
             <ul className="flex justify-between px-[4vw]">
               <li className=" tracking-widest font-light">2023 &copy;</li>
-              <li className=" border-b border-cyan-100 w-1/2"></li>
+              <motion.li
+                variants={navBarLineVariant(0.75, 3.9)}
+                initial="hidden"
+                animate="visible"
+                className=" border-b border-cyan-100 w-1/2 translate-y-[-50%]"
+              ></motion.li>
               <li className=" tracking-[1ch] font-light cursor-pointer hover:line-through">
                 <Link to="/">HOME</Link>
               </li>
             </ul>
-          </nav>
-          <article className="px-16 max-w-[80%]">
+          </motion.nav>
+          <motion.article
+            variants={textVariant(0.5, 4.65)}
+            initial="hidden"
+            animate="visible"
+            className="px-[4vw] max-w-[80%]"
+          >
             <h1 className=" text-2xl font-normal tracking-[.6ch] pb-4">WORK</h1>
             <p className="font-extralight pb-3 text-justify">
               As a fullstack web developer with a passion for backend
@@ -51,11 +85,16 @@ export const Work: React.FC<WorkProps> = ({}) => {
               enhance your business operations, I'm confident that I have the
               skills and experience necessary to deliver exceptional results.
             </p>
-          </article>
+          </motion.article>
         </section>
         <section className=" h-full w-3/5 font-voyage flex flex-col items-start justify-center gap-[2vw]">
-          <article className="group">
-            <h1 className=" text-[6vw] leading-[.75] cursor-pointer hover:tracking-tight hover:py-[1.5vw]  duration-300">
+          <motion.article
+            variants={workVariant(0.4, 0)}
+            initial="hidden"
+            animate="visible"
+            className="group"
+          >
+            <h1 className=" text-[6vw] leading-[.75] cursor-pointer hover:tracking-tight hover:py-[1.5vw] duration-300 w-screen">
               <a
                 href="https://github.com/skifox52/PerfectPetMatch"
                 target="_blank"
@@ -67,9 +106,14 @@ export const Work: React.FC<WorkProps> = ({}) => {
               - NodeJS, React, RTK Query, Docker, Kubernetes, TypeScript,
               MongoDB, TailwindCSS.
             </span>
-          </article>
-          <article className="group">
-            <h1 className=" text-[6vw] leading-[.75] cursor-pointer hover:tracking-tight hover:py-[1.5vw]  duration-300">
+          </motion.article>
+          <motion.article
+            variants={workVariant(0.4, 0.4)}
+            initial="hidden"
+            animate="visible"
+            className="group"
+          >
+            <h1 className=" text-[6vw] leading-[.75] cursor-pointer hover:tracking-tight hover:py-[1.5vw]  duration-300 w-screen">
               <a href="https://github.com/skifox52/gpi_pfe" target="_blank">
                 IT asset management
               </a>
@@ -77,9 +121,14 @@ export const Work: React.FC<WorkProps> = ({}) => {
             <span className="opacity-0 group-hover:opacity-100 duration-200 font-montserrat">
               - NodeJS, Express, React, RTK, SASS, MySQL.
             </span>
-          </article>
-          <article className="group">
-            <h1 className=" text-[6vw] leading-[.75] cursor-pointer hover:tracking-tight hover:py-[1.5vw]  duration-300">
+          </motion.article>
+          <motion.article
+            variants={workVariant(0.4, 0.8)}
+            initial="hidden"
+            animate="visible"
+            className="group"
+          >
+            <h1 className=" text-[6vw] leading-[.75] cursor-pointer hover:tracking-tight hover:py-[1.5vw]  duration-300 w-screen">
               <a href="https://github.com/skifox52/projetL" target="_blank">
                 Country manager
               </a>
@@ -87,9 +136,14 @@ export const Work: React.FC<WorkProps> = ({}) => {
             <span className="opacity-0 group-hover:opacity-100 duration-200 font-montserrat">
               - NodeJS, Express, React, RTK, MongoDB.
             </span>
-          </article>
-          <article className="group">
-            <h1 className=" text-[6vw] leading-[.75] cursor-pointer hover:tracking-tight hover:py-[1.5vw]  duration-300">
+          </motion.article>
+          <motion.article
+            variants={workVariant(0.4, 1.2)}
+            initial="hidden"
+            animate="visible"
+            className="group"
+          >
+            <h1 className=" text-[6vw] leading-[.75] cursor-pointer hover:tracking-tight hover:py-[1.5vw]  duration-300 w-screen">
               <a href="https://github.com/skifox52/social" target="_blank">
                 Social media
               </a>
@@ -98,15 +152,22 @@ export const Work: React.FC<WorkProps> = ({}) => {
               - NodeJS, Express, React, React-Query, TypeScript, MongoDB,
               TailwindCSS.
             </span>
-          </article>
-          <article className="group">
-            <h1 className=" text-[6vw] leading-[.75] cursor-pointer hover:tracking-tight hover:py-[1.5vw]  duration-300">
-              Portfolio
+          </motion.article>
+          <motion.article
+            variants={workVariant(0.4, 1.6)}
+            initial="hidden"
+            animate="visible"
+            className="group"
+          >
+            <h1 className=" text-[6vw] leading-[.75] cursor-pointer hover:tracking-tight hover:py-[1.5vw]  duration-300 w-screen">
+              <a href="https://github.com/skifox52/Portfolio" target="_blank">
+                Portfolio
+              </a>
             </h1>
             <span className="opacity-0 group-hover:opacity-100 duration-200 font-montserrat">
               React, TypeScript, Framer-Motion, TailwindCSS.
             </span>
-          </article>
+          </motion.article>
         </section>
       </motion.div>
     </div>

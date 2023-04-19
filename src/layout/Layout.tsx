@@ -7,7 +7,7 @@ interface LayoutProps {}
 const loaderVariant = {
   hidden: { y: 0 },
   visible: {
-    y: "110vh",
+    y: "100vh",
     transition: {
       ease: [1, 0, 0, 1],
       delay: 0.2,

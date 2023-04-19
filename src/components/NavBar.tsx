@@ -6,9 +6,11 @@ interface NavBarProps {}
 const blurAnimation = {
   hidden: {
     opacity: 0,
+    lineHeight: 0.4,
   },
   visible: {
     opacity: 1,
+    lineHeight: 1,
     transition: {
       ease: "linear",
       delay: 0.8,
@@ -25,20 +27,20 @@ export const NavBar: React.FC<NavBarProps> = ({}) => {
         variants={blurAnimation}
         initial="hidden"
         animate="visible"
-        className="w-[50%] flex flex-col gap-['-100px'] items-start justify-center font-voyage text-[12vw] font-normal leading-[1.5ch]"
+        className="w-[50%] flex flex-col gap-['-100px'] items-start justify-center font-voyage text-[12vw] font-normal leading-[1]"
       >
-        <Link to="/">
-          <h1 className="font-light transition-all duration-100 hover:tracking-tighter hover:cursor-pointer hover:font-extralight hover:-translate-x-4 ease-linear">
+        <Link to="/about">
+          <h1 className="transition-all duration-100 hover:tracking-tighter hover:cursor-pointer hover:-translate-x-4 w-screen ease-linear">
             About
           </h1>
         </Link>
         <Link to="/contact">
-          <h1 className="font-light transition-all duration-100 hover:tracking-tighter hover:cursor-pointer hover:font-extralight hover:-translate-x-4 ease-linear">
+          <h1 className="transition-all duration-100 hover:tracking-tighter hover:cursor-pointer hover:-translate-x-4 w-screen ease-linear">
             Contact
           </h1>
         </Link>
         <Link to="/work">
-          <h1 className="font-light transition-all duration-100 hover:tracking-tighter hover:cursor-pointer hover:font-extralight hover:-translate-x-4 ease-linear">
+          <h1 className="transition-all duration-100 hover:tracking-tighter hover:cursor-pointer hover:-translate-x-4 w-screen ease-linear">
             Work
           </h1>
         </Link>
@@ -47,7 +49,7 @@ export const NavBar: React.FC<NavBarProps> = ({}) => {
   }
   return (
     <nav className="w-[50%] flex flex-col gap-['-100px'] items-start justify-center font-voyage text-[12vw] font-normal leading-[1.5ch]">
-      <Link to="/">
+      <Link to="/about">
         <h1 className="font-light transition-all duration-100 hover:tracking-tighter hover:cursor-pointer hover:font-extralight hover:-translate-x-4 ease-linear">
           About
         </h1>
