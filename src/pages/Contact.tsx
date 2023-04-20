@@ -35,12 +35,14 @@ export const Contact: React.FC<ContactProps> = ({}) => {
   const appearVariant = (duration: number, delay: number): Variants => {
     return {
       hidden: {
-        backgroundColor: "rgb(207 250 254)",
+        opacity: 0,
+        y: "10vh",
       },
       visible: {
-        backgroundColor: "rgb(22 78 99)",
+        opacity: 1,
+        y: 0,
         transition: {
-          ease: [1, 0, 0, 1],
+          ease: "linear",
           duration,
           delay,
         },
@@ -52,7 +54,7 @@ export const Contact: React.FC<ContactProps> = ({}) => {
       variants={contentVariant}
       initial="hidden"
       animate="visible"
-      className="w-screen h-full bg-cyan-950 py-[1vw] px-[3vw]"
+      className="w-screen h-full bg-cyan-950"
     >
       <motion.div
         variants={transitionVatiant}
@@ -60,10 +62,10 @@ export const Contact: React.FC<ContactProps> = ({}) => {
         animate="visible"
         className="bg-gray-800 w-screen h-screen absolute z-50"
       ></motion.div>
-      <main className=" text-white w-full flex">
+      <main className=" text-white w-full flex py-[1vw] px-[3vw]">
         <section className="w-full h-screen flex flex-col justify-between pb-[50vh]">
           <motion.nav
-            variants={lowerNavBarVariant(0.5, 6)}
+            variants={lowerNavBarVariant(0.5, 5)}
             initial="hidden"
             animate="visible"
             className="w-full"
@@ -71,7 +73,7 @@ export const Contact: React.FC<ContactProps> = ({}) => {
             <ul className="flex justify-between font-light tracking-widest text-amber-50">
               <li>2023 &copy;</li>
               <motion.li
-                variants={navBarLineVariant(0.75, 6.9)}
+                variants={navBarLineVariant(0.75, 5.5)}
                 initial="hidden"
                 animate="visible"
                 className="w-1/2 border-b border-amber-50 translate-y-[-50%]"
@@ -86,29 +88,58 @@ export const Contact: React.FC<ContactProps> = ({}) => {
               </li>
             </ul>
           </motion.nav>
-          <article>
-            <p>
+          <article className="font-montserrat tracking-wider font-light max-w-[70%]">
+            <motion.p
+              variants={appearVariant(0.5, 3.5)}
+              initial="hidden"
+              animate="visible"
+              className="py-4"
+            >
               I can help you design and build your next website. Let me know
               what you need.
-            </p>
-            <p>Email: sayhi.abdelfattah@gmail.com</p>
-            <p>
+            </motion.p>
+            <motion.p
+              variants={appearVariant(0.5, 4)}
+              initial="hidden"
+              animate="visible"
+              className="py-4"
+            >
+              Email: sayhi.abdelfattah@gmail.com
+            </motion.p>
+            <motion.p
+              variants={appearVariant(0.5, 4.5)}
+              initial="hidden"
+              animate="visible"
+              className="py-4"
+            >
               Socials:{" "}
               <a
                 href="https://www.linkedin.com/in/abdelfattah-sayhi/"
                 target="_blank"
+                className=" underline hover:line-through"
               >
                 Linkedin
               </a>{" "}
               /{" "}
-              <a href="https://github.com/skifox52" target="_blank">
+              <a
+                href="https://github.com/skifox52"
+                target="_blank"
+                className=" underline hover:line-through"
+              >
                 Github
               </a>
-            </p>
+            </motion.p>
           </article>
         </section>
         <section className="flex flex-col items-center justify-center">
-          <h1 className=" text-[20vw] font-voyage">Hello.</h1>
+          <motion.h1
+            variants={appearVariant(1, 2.5)}
+            initial="hidden"
+            animate="visible"
+            className=" text-[20vw] font-voyage"
+          >
+            Hello.
+          </motion.h1>
         </section>
       </main>
     </motion.div>
