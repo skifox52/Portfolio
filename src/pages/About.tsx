@@ -3,6 +3,7 @@ import { motion, Variants } from "framer-motion"
 import { Link } from "react-router-dom"
 import image from "../assets/placeholder.jpeg"
 import { lowerNavBarVariant, navBarLineVariant } from "../utils/Variants"
+import pdfFile from "../assets/pdf/Abdelfattah_Sayhi.pdf"
 
 interface AboutProps {}
 const aboutLoaderVariant: Variants = {
@@ -53,9 +54,56 @@ const imageVariant = {
     transition: {
       ease: [1, 0, 0.94, 0.94],
       duration: 0.5,
+      delay: 4.4,
+    },
+  },
+}
+const animateTitleVariant = {
+  hidden: {
+    letterSpacing: "-1ch",
+    opacity: 0,
+  },
+  visible: {
+    letterSpacing: 0,
+    opacity: 1,
+    transition: {
+      ease: "linear",
+      duration: 1,
       delay: 3.4,
     },
   },
+}
+const showTextVarient = {
+  hidden: {
+    x: "30%",
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      ease: "linear",
+      duration: 1,
+      delay: 4.9,
+    },
+  },
+}
+const animateButton = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      ease: "linear",
+      duration: 1,
+      delay: 5.9,
+    },
+  },
+}
+const openPdfNewTab = (): void => {
+  const pdf = pdfFile
+  window.open(pdf, "_blank")
 }
 export const About: React.FC<AboutProps> = ({}) => {
   return (
@@ -75,14 +123,78 @@ export const About: React.FC<AboutProps> = ({}) => {
         variants={showContentVariant}
         initial="hidden"
         animate="visible"
-        className="h-full w-full px-[5vw] py-[4vw] flex"
+        className="h-full w-full px-[5vw] py-[2vw] flex"
       >
         <section className=" w-1/2 flex flex-col justify-between">
-          <h1 className="text-[12vw] font-voyage text-center text-amber-100">
+          <motion.h1
+            variants={animateTitleVariant}
+            initial="hidden"
+            animate="visible"
+            className="text-[13.5vw] font-voyage font-extralight text-center text-amber-100"
+          >
             About
-          </h1>
+          </motion.h1>
+          <main className="flex flex-col pb-[2vw] items-center justify-between border-r border-amber-50 h-full">
+            <motion.article
+              variants={showTextVarient}
+              initial="hidden"
+              animate="visible"
+              className="flex w-full items-start"
+            >
+              <section className="text-amber-50 flex w-1/2  justify-start flex-col">
+                <h2 className="font-voyage text-[1.5vw]">Education</h2>
+                <ul className="font-montserrat w-2/3 font-extralight text-[14px] ">
+                  <li>Baccalaureate in Science.</li>
+                  <li>Master 1 in Information Systems.</li>
+                  <li>
+                    Master 2 in Administration and Management of Databases.
+                  </li>
+                </ul>
+              </section>
+              <section className="text-amber-50 flex w-1/2  justify-start  flex-col">
+                <h2 className="font-voyage text-[1.5vw]">Experience</h2>
+                <ul className="font-montserrat w-2/3 font-extralight text-[14px] ">
+                  <li>6 months in IT service at Sonatrach.</li>
+                  <li>9 months of Dev in BNP Paribas El Djazayer.</li>
+                </ul>
+              </section>
+            </motion.article>
+            <motion.article
+              variants={showTextVarient}
+              initial="hidden"
+              animate="visible"
+              className=" w-full items-start"
+            >
+              <section className="text-amber-50 flex w-full justify-start  flex-col ">
+                <h2 className="font-voyage text-[1.5vw]">Skills</h2>
+                <ul className="font-montserrat font-extralight text-[14px] ">
+                  <li>
+                    <pre className="">Programming languages</pre>
+                    JavaScript, TypeScript, Bash, Java, C++.
+                  </li>
+                  <li>
+                    <pre className="">Frontend</pre>
+                    HTML5, CSS3, SASS, TailwindCSS, React, Framer-motion,
+                    ReduxToolkit, RTK Query, React-Query.
+                  </li>
+                  <li>
+                    <pre className="">Backend</pre>
+                    NodeJS, Express, SocketIO, Docker, Kubernetes.
+                  </li>
+                  <li>
+                    <pre className="">Database</pre>
+                    MpngoDB, Mysql, SQLServer, Oracle PL/SQL, Redis.
+                  </li>
+                  <li>
+                    <pre className="">Languages</pre>
+                    Arab, French, English
+                  </li>
+                </ul>
+              </section>
+            </motion.article>
+          </main>
           <motion.nav
-            variants={lowerNavBarVariant(0.5, 3.9)}
+            variants={lowerNavBarVariant(0.5, 6)}
             initial="hidden"
             animate="visible"
             className="w-full"
@@ -90,7 +202,7 @@ export const About: React.FC<AboutProps> = ({}) => {
             <ul className="flex justify-between font-light tracking-widest text-amber-50">
               <li>2023 &copy;</li>
               <motion.li
-                variants={navBarLineVariant(0.75, 4.4)}
+                variants={navBarLineVariant(0.75, 6.9)}
                 initial="hidden"
                 animate="visible"
                 className="w-1/2 border-b border-amber-50 translate-y-[-50%]"
@@ -106,41 +218,24 @@ export const About: React.FC<AboutProps> = ({}) => {
             </ul>
           </motion.nav>
         </section>
-        <section className="w-1/2 flex flex-col gap-[3vw] ">
+        <section className="w-1/2 flex flex-col gap-[3vw] justify-between items-center">
           <motion.img
             src={image}
             variants={imageVariant}
             initial="hidden"
             animate="visible"
             alt="placeholder"
-            className="w-[55%] mx-auto opacity-30"
+            className="w-[70%] mx-auto opacity-30"
           />
-          <article className="flex h-full flex-col justify-between items-center ">
-            <main className="w-full  flex">
-              <section className="text-amber-50 flex  justify-start flex-1 items-center flex-col">
-                <h2 className="font-voyage text-[2vw]">Education</h2>
-                <ul className=" list-disc pl-[10%] font-montserrat w-2/3 font-extralight ">
-                  <li>Baccalaureate in Science.</li>
-                  <li>Master 1 in Information Systems.</li>
-                  <li>
-                    Master 2 in Administration and Management of Databases.
-                  </li>
-                </ul>
-              </section>
-              <section className="text-amber-50 flex flex-1 justify-start items-center flex-col">
-                <h2 className="font-voyage text-[2vw]">Informations</h2>
-                <ul className=" list-disc pl-[10%] font-montserrat w-2/3 font-extralight ">
-                  <li>Name: Abdelfattah. </li>
-                  <li>Surname: SAYHI.</li>
-                  <li>Date of birth: 26-06-1995.</li>
-                  <li>Driving License: YES.</li>
-                </ul>
-              </section>
-            </main>
-            <button className="text-xl font-voyage tracking-widest hover:w-3/5 duration-200 ease-linear text-amber-50 bg-[#0d2526] shadow-lg w-1/2 py-[1.5vh] rounded-[1vw]">
-              My CV
-            </button>
-          </article>
+          <motion.button
+            variants={animateButton}
+            initial="hidden"
+            animate="visible"
+            onClick={openPdfNewTab}
+            className="text-xl font-voyage tracking-widest hover:w-3/5 duration-200 ease-linear text-amber-50 bg-[#0d2526] shadow-lg w-1/2 py-[1.5vh] rounded-[1vw]"
+          >
+            My CV
+          </motion.button>
         </section>
       </motion.main>
     </motion.div>
