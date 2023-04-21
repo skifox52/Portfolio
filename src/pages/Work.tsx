@@ -43,7 +43,7 @@ export const Work: React.FC<WorkProps> = ({}) => {
         variants={transitionVatiant}
         initial="hidden"
         animate="visible"
-        className="bg-gray-800 h-full w-screen text-cyan-100 flex"
+        className="bg-gray-800 h-full w-screen text-cyan-100 lg:flex-row flex flex-col-reverse"
       >
         <section className="flex-1  h-full flex flex-col justify-between pb-32">
           <motion.nav
@@ -53,7 +53,9 @@ export const Work: React.FC<WorkProps> = ({}) => {
             className="w-full py-8"
           >
             <ul className="flex justify-between px-[4vw]">
-              <li className=" tracking-widest font-light">2023 &copy;</li>
+              <li className=" tracking-widest font-light text-xs lg:text-lg">
+                2023 &copy;
+              </li>
               <motion.li
                 variants={navBarLineVariant(0.75, 3.9)}
                 initial="hidden"
@@ -72,14 +74,14 @@ export const Work: React.FC<WorkProps> = ({}) => {
             className="px-[4vw] max-w-[80%]"
           >
             <h1 className=" text-2xl font-normal tracking-[.6ch] pb-4">WORK</h1>
-            <p className="font-extralight pb-3 text-justify">
+            <p className="font-extralight pb-3 text-justify lg:text-lg text-xs">
               As a fullstack web developer with a passion for backend
               development, I've had the opportunity to work on a variety of
               exciting projects that have challenged and inspired me. From
               designing and implementing robust APIs to developing efficient
               database architectures.
             </p>
-            <p className="font-extralight text-justify">
+            <p className="font-extralight text-justify lg:text-lg text-xs">
               Whether you're looking to build a custom web application, optimize
               your existing backend systems, or implement new technologies to
               enhance your business operations, I'm confident that I have the
@@ -87,7 +89,7 @@ export const Work: React.FC<WorkProps> = ({}) => {
             </p>
           </motion.article>
         </section>
-        <section className=" h-full w-3/5 font-voyage flex flex-col items-start justify-center gap-[2vw]">
+        <section className=" h-full w-3/5 font-voyage flex flex-col items-start justify-center gap-[2vw] px-[4vw] lg:px-0">
           <motion.article
             variants={workVariant(0.4, 0)}
             initial="hidden"
@@ -102,7 +104,7 @@ export const Work: React.FC<WorkProps> = ({}) => {
                 Perfect pet match
               </a>
             </h1>
-            <span className=" opacity-0 group-hover:opacity-100 duration-200 font-montserrat ">
+            <span className=" opacity-0 group-hover:opacity-100 duration-200 font-montserrat text-[1.2vw] font-light">
               - NodeJS, React, RTK Query, Docker, Kubernetes, TypeScript,
               MongoDB, TailwindCSS.
             </span>
@@ -118,7 +120,7 @@ export const Work: React.FC<WorkProps> = ({}) => {
                 IT asset management
               </a>
             </h1>
-            <span className="opacity-0 group-hover:opacity-100 duration-200 font-montserrat">
+            <span className="opacity-0 group-hover:opacity-100 duration-200 font-montserrat text-[1.2vw] font-light">
               - NodeJS, Express, React, RTK, SASS, MySQL.
             </span>
           </motion.article>
@@ -133,7 +135,7 @@ export const Work: React.FC<WorkProps> = ({}) => {
                 Country manager
               </a>
             </h1>
-            <span className="opacity-0 group-hover:opacity-100 duration-200 font-montserrat">
+            <span className="opacity-0 group-hover:opacity-100 duration-200 font-montserrat text-[1.2vw] font-light">
               - NodeJS, Express, React, RTK, MongoDB.
             </span>
           </motion.article>
@@ -148,7 +150,7 @@ export const Work: React.FC<WorkProps> = ({}) => {
                 Social media
               </a>
             </h1>
-            <span className="opacity-0 group-hover:opacity-100 duration-200 font-montserrat">
+            <span className="opacity-0 group-hover:opacity-100 duration-200 font-montserrat text-[1.2vw] font-light">
               - NodeJS, Express, React, React-Query, TypeScript, MongoDB,
               TailwindCSS.
             </span>
@@ -164,7 +166,7 @@ export const Work: React.FC<WorkProps> = ({}) => {
                 Portfolio
               </a>
             </h1>
-            <span className="opacity-0 group-hover:opacity-100 duration-200 font-montserrat">
+            <span className="opacity-0 group-hover:opacity-100 duration-200 font-montserrat text-[1.2vw] font-light">
               React, TypeScript, Framer-Motion, TailwindCSS.
             </span>
           </motion.article>

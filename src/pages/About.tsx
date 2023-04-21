@@ -24,7 +24,7 @@ const aboutContentVariant: Variants = {
     backgroundColor: "rgb(207 250 254)",
   },
   visible: {
-    backgroundColor: "#163F42",
+    backgroundColor: "#083344",
     transition: {
       ease: [1, 0, 0, 1],
       duration: 1,
@@ -108,7 +108,7 @@ const openPdfNewTab = (): void => {
 export const About: React.FC<AboutProps> = ({}) => {
   return (
     <motion.div
-      className="h-screen w-screen bg-[#163F42]"
+      className="h-screen w-screen "
       variants={aboutContentVariant}
       initial="hidden"
       animate="visible"
@@ -123,18 +123,18 @@ export const About: React.FC<AboutProps> = ({}) => {
         variants={showContentVariant}
         initial="hidden"
         animate="visible"
-        className="h-full w-full px-[5vw] py-[2vw] flex"
+        className="h-full w-full flex-col lg:flex-row px-[5vw] py-[2vw] flex text-white"
       >
-        <section className=" w-1/2 flex flex-col justify-between">
+        <section className=" w-full flex flex-col h-full justify-between">
           <motion.h1
             variants={animateTitleVariant}
             initial="hidden"
             animate="visible"
-            className="text-[13.5vw] font-voyage font-extralight text-center text-amber-100"
+            className="text-[13.5vw] font-voyage font-extralight text-center text-white"
           >
             About
           </motion.h1>
-          <main className="flex flex-col pb-[2vw] items-center justify-between border-r border-amber-50 h-full">
+          <main className="flex flex-col pb-[2vw] items-center justify-around border-r border-amber-50 h-full">
             <motion.article
               variants={showTextVarient}
               initial="hidden"
@@ -142,8 +142,10 @@ export const About: React.FC<AboutProps> = ({}) => {
               className="flex w-full items-start"
             >
               <section className="text-amber-50 flex w-1/2  justify-start flex-col">
-                <h2 className="font-voyage text-[1.5vw]">Education</h2>
-                <ul className="font-montserrat w-2/3 font-extralight text-[14px] ">
+                <h2 className="font-montserrat tracking-widest font-light text-[16px] lg:text-[1.5vw]">
+                  Education
+                </h2>
+                <ul className="font-montserrat w-2/3 font-extralight text-[12px] lg:text-[14px] ">
                   <li>Baccalaureate in Science.</li>
                   <li>Master 1 in Information Systems.</li>
                   <li>
@@ -151,9 +153,11 @@ export const About: React.FC<AboutProps> = ({}) => {
                   </li>
                 </ul>
               </section>
-              <section className="text-amber-50 flex w-1/2  justify-start  flex-col">
-                <h2 className="font-voyage text-[1.5vw]">Experience</h2>
-                <ul className="font-montserrat w-2/3 font-extralight text-[14px] ">
+              <section className="text-white flex w-1/2  justify-start  flex-col">
+                <h2 className="font-montserrat tracking-widest font-light text-[16px] lg:text-[1.5vw]">
+                  Experience
+                </h2>
+                <ul className="font-montserrat w-2/3 font-extralight text-[12px] lg:text-[14px] ">
                   <li>6 months in IT service at Sonatrach.</li>
                   <li>9 months of Dev in BNP Paribas El Djazayer.</li>
                 </ul>
@@ -165,30 +169,19 @@ export const About: React.FC<AboutProps> = ({}) => {
               animate="visible"
               className=" w-full items-start"
             >
-              <section className="text-amber-50 flex w-full justify-start  flex-col ">
-                <h2 className="font-voyage text-[1.5vw]">Skills</h2>
-                <ul className="font-montserrat font-extralight text-[14px] ">
+              <section className="text-white flex w-full justify-start  flex-col ">
+                <h2 className="font-montserrat tracking-widest font-light text-[16px] lg:text-[1.5vw]">
+                  Skills
+                </h2>
+                <ul className="font-montserrat font-extralight text-[12px] lg:text-[14px] ">
+                  <li> JavaScript, TypeScript, Bash, Java, C++.</li>
                   <li>
-                    <pre className="">Programming languages</pre>
-                    JavaScript, TypeScript, Bash, Java, C++.
-                  </li>
-                  <li>
-                    <pre className="">Frontend</pre>
                     HTML5, CSS3, SASS, TailwindCSS, React, Framer-motion,
                     ReduxToolkit, RTK Query, React-Query.
                   </li>
-                  <li>
-                    <pre className="">Backend</pre>
-                    NodeJS, Express, SocketIO, Docker, Kubernetes.
-                  </li>
-                  <li>
-                    <pre className="">Database</pre>
-                    MpngoDB, Mysql, SQLServer, Oracle PL/SQL, Redis.
-                  </li>
-                  <li>
-                    <pre className="">Languages</pre>
-                    Arab, French, English
-                  </li>
+                  <li>NodeJS, Express, SocketIO, Docker, Kubernetes.</li>
+                  <li>MpngoDB, Mysql, SQLServer, Oracle PL/SQL, Redis.</li>
+                  <li>Arab, French, English</li>
                 </ul>
               </section>
             </motion.article>
@@ -199,18 +192,18 @@ export const About: React.FC<AboutProps> = ({}) => {
             animate="visible"
             className="w-full"
           >
-            <ul className="flex justify-between font-light tracking-widest text-amber-50">
+            <ul className="flex justify-between font-light tracking-widest text-white">
               <li>2023 &copy;</li>
               <motion.li
                 variants={navBarLineVariant(0.75, 6.9)}
                 initial="hidden"
                 animate="visible"
-                className="w-1/2 border-b border-amber-50 translate-y-[-50%]"
+                className="w-1/2 border-b border-white translate-y-[-50%]"
               ></motion.li>
               <li className="flex justify-between w-1/6">
                 <Link
                   to={"/"}
-                  className="tracking-[1ch] font-light cursor-pointer text-amber-50 hover:line-through"
+                  className="tracking-[1ch] font-light cursor-pointer text-white hover:line-through"
                 >
                   HOME
                 </Link>
@@ -218,21 +211,21 @@ export const About: React.FC<AboutProps> = ({}) => {
             </ul>
           </motion.nav>
         </section>
-        <section className="w-1/2 flex flex-col gap-[3vw] justify-between items-center">
+        <section className="w-full py-4 h-1/3 sm:h-1/2 flex flex-col sm:flex-row  lg:flex-col gap-[3vw] justify-between items-center">
           <motion.img
             src={image}
             variants={imageVariant}
             initial="hidden"
             animate="visible"
             alt="placeholder"
-            className="w-[70%] mx-auto opacity-30"
+            className="h-[80%] lg:h-auto lg:w-[70%] mx-auto opacity-30"
           />
           <motion.button
             variants={animateButton}
             initial="hidden"
             animate="visible"
             onClick={openPdfNewTab}
-            className="text-xl font-voyage tracking-widest hover:w-3/5 duration-200 ease-linear text-amber-50 bg-[#0d2526] shadow-lg w-1/2 py-[1.5vh] rounded-[1vw]"
+            className="sm:text-xl font-montserrat font-light tracking-widest hover:translate-y-1 lg:hover:translate-y-0 w-full  lg:hover:w-3/5 duration-200 ease-linear text-white bg-cyan-950 border border-cyan-9 00 shadow-lg sm:w-1/2 py-[.75vh] sm:py-[1.5vh] rounded-[1vw]"
           >
             My CV
           </motion.button>

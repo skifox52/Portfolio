@@ -62,7 +62,7 @@ export const Contact: React.FC<ContactProps> = ({}) => {
         animate="visible"
         className="bg-gray-800 w-screen h-screen absolute z-50"
       ></motion.div>
-      <main className=" text-white w-full flex py-[1vw] px-[3vw]">
+      <main className=" text-white w-full flex py-[1vw] px-[3vw] flex-col-reverse lg:flex-row">
         <section className="w-full h-screen flex flex-col justify-between pb-[50vh]">
           <motion.nav
             variants={lowerNavBarVariant(0.5, 5)}
@@ -88,7 +88,7 @@ export const Contact: React.FC<ContactProps> = ({}) => {
               </li>
             </ul>
           </motion.nav>
-          <article className="font-montserrat tracking-wider font-light max-w-[70%]">
+          <article className="font-montserrat tracking-wider font-light max-w-[70%] text-[1/5vw]">
             <motion.p
               variants={appearVariant(0.5, 3.5)}
               initial="hidden"

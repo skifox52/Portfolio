@@ -36,7 +36,7 @@ export const Layout: React.FC<LayoutProps> = ({}) => {
         variants={containerVariant}
         initial="hidden"
         animate="visible"
-        className="flex w-screen h-screen overflow-hidden  bg-cyan-100 text-gray-800 justify-between"
+        className="flex w-screen h-screen overflow-hidden flex-col-reverse lg:flex-row  bg-cyan-100 text-gray-800 justify-between"
       >
         <motion.div
           variants={loaderVariant}
@@ -44,7 +44,7 @@ export const Layout: React.FC<LayoutProps> = ({}) => {
           animate="visible"
           className="absolute block bg-gray-800 h-screen w-screen z-50"
         ></motion.div>
-        <main className="w-[50%] h-screen flex items-center justify-center">
+        <main className="w-full lg:w-[50%] h-screen flex items-center justify-center">
           <Outlet />
         </main>
         <NavBar />
@@ -52,11 +52,11 @@ export const Layout: React.FC<LayoutProps> = ({}) => {
     )
   }
   return (
-    <div className="flex w-screen h-screen overflow-hidden  bg-cyan-100 text-gray-800 justify-between">
+    <div className="flex  w-screen h-screen overflow-hidden  bg-cyan-100 text-gray-800 justify-between ">
       <main className="min-w-[50%] h-screen flex items-center justify-center">
         <Outlet />
+        {location.pathname === "/" && <NavBar />}
       </main>
-      {location.pathname === "/" && <NavBar />}
     </div>
   )
 }

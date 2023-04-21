@@ -27,7 +27,7 @@ export const NavBar: React.FC<NavBarProps> = ({}) => {
         variants={blurAnimation}
         initial="hidden"
         animate="visible"
-        className="w-[50%] flex flex-col gap-['-100px'] items-start justify-center font-voyage text-[12vw] font-normal leading-[1]"
+        className="p-[4vw] pl-[20%] lg:pl-0 lg:p-0  w-full lg:w-[50%] flex flex-col gap-['-100px'] items-start justify-center font-voyage text-[12vw] font-normal leading-[1]"
       >
         <Link to="/about">
           <h1 className="transition-all duration-100 hover:tracking-tighter hover:cursor-pointer hover:-translate-x-4 w-screen ease-linear">
